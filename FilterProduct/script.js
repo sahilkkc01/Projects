@@ -12,12 +12,27 @@ function filterProduct(){
         const title =item.querySelector('h3').innerText.toLowerCase();
         const category= item.dataset.category;
 
-        if(title.includes(searchValue) || searchValue=='' || category.includes(searchValue)){
+        const activeCategory =document.querySelector('.category-btn.active').dataset.category;
+
+        if((title.includes(searchValue) || searchValue=='' || category.includes(searchValue)) && (category===activeCategory || activeCategory==='all')){
                item.style.display='block';
         }else{
             item.style.display='none'; 
         }
     })
+
+}
+
+function setCategory(e){
+
+    //removing active class from all category
+   categoryBtns.forEach(btn=>
+    btn.classList.remove('active'));
+
+   //adding active class to perticular selected category
+   e.target.classList.add('active')
+
+   filterProduct();
 
 }
 
