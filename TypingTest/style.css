@@ -28,6 +28,13 @@ body{
     border: 1px solid #bfbfbf;
 }
 
+.wrapper .input-field{
+    padding: 13px 20px 0;
+    position: absolute;
+    opacity: 0;
+    z-index: -99;
+}
+
 .content-box .content{
      margin-top: 17px;
      display: flex;
@@ -67,4 +74,28 @@ body{
 
 .content button:active{
     transform: scale(0.97);
+}
+
+.typing-text p span{
+    position: relative;
+}
+
+.typing-text p span.active{
+    color: orange;
+}
+
+.typing-text p span.correct{
+    color: green;
+}
+
+.typing-text p span.wrong{
+    color: red;
+    outline: 1px solid #fff;
+    background-color: #ffc0cb;
+    border-radius: 4px;
+}
+
+::selection{
+    color: #fff;
+    background: orange;
 }
